@@ -40,12 +40,12 @@ void loop(){
     
     /* If so then get its serial number */
     RC522.readCardSerial();
-    Serial.println("Card detected:");
+    /*Serial.println("Card detected:");*/
     for(int i=0;i<5;i++){
       Serial.print(RC522.serNum[i],DEC);
     }
-    Serial.println();
-    Serial.println();
+    //Serial.println();
+    //Serial.println();
   }
   delay(1000);
 }
