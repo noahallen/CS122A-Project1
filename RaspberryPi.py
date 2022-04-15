@@ -20,7 +20,7 @@ if __name__ == '__main__':
                         pass
                     if arduino.inWaiting() > 0:
                         answer = arduino.readline()
-                        print(answer)
+                        print(answer.decode("Ascii"))
                         arduino.flushInput()  # remove data after reading
             except KeyboardInterrupt:
                 print("KeyboardInterrupt has been caught.")
