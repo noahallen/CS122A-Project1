@@ -17,7 +17,7 @@ clientSecret = "31d4d345bc114da39414613c1ce45a38"
 spotifyUserName = "noah_allen24"
 redirectURI = "http://google.com/"
 
-songIDHashTable = {"8713525193": "https://open.spotify.com/track/5fVZC9GiM4e8vu99W0Xf6J?si=5a47cb3853814f39"}
+songIDHashTable = {"8713525193": "https://open.spotify.com/track/11bD1JtSjlIgKgZG2134DZ?si=645e98957f0d4001"}
 
 def parseOutput(output):
     print(output)
