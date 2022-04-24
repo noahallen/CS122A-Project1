@@ -64,10 +64,14 @@ if __name__ == '__main__':
                         if(songLink == ""):
                             print("Card not recognized")
                         else:
+                            mouse.position = (788, 50)
                             webbrowser.open(songLink, new=0)
                             time.sleep(5)
-                            print('The current pointer position is {0}'.format(mouse.position))
-
+                            mouse.press(Button.left)
+                            mouse.release(Button.left)
+                            time.sleep(3)
+                            print('The current pointer position is {0}'.format(
+    mouse.position))
 
                             
                             
