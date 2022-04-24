@@ -61,6 +61,7 @@ if __name__ == '__main__':
         if arduino.isOpen():
             print("{} connected!".format(arduino.port))
             try:
+                songOpened = False
                 while True:
                     output = ""
                     time.sleep(0.1) #wait for arduino to answer
@@ -77,11 +78,15 @@ if __name__ == '__main__':
                         if(songLink == ""):
                             print("Card not recognized")
                         else:
+                            if(songOpened):
+                                closeWindow()
+                                time.sleep(3)
                             webbrowser.open(songLink, new=0)
                             time.sleep(5)
                             closeWindow()
                             time.sleep(3)
                             playPause()
+                            songOpened = True
 
                             
                             
