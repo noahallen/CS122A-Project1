@@ -21,7 +21,10 @@ songIDHashTable = {"8713525193": "https://open.spotify.com/track/11bD1JtSjlIgKgZ
 
 def parseOutput(output):
     print(output)
-    return songIDHashTable[output]
+    if(output in songIDHashTable.keys()):
+        return songIDHashTable[output]
+    else:
+        return ""
 
 
 
@@ -53,7 +56,10 @@ if __name__ == '__main__':
                         # print(output)
                         #Parse output from arduino
                         songLink = parseOutput(output)
-                        webbrowser.open(songLink)
+                        if(songLink == ""):
+                            print("Card not recognized")
+                        else:
+                            webbrowser.open(songLink, new=0)
                         arduino.flushInput()  # remove data after reading
             except KeyboardInterrupt:
                 print("KeyboardInterrupt has been caught.")
