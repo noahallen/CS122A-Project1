@@ -81,7 +81,7 @@ if __name__ == '__main__':
                             if(songOpened):
                                 closeWindow()
                             webbrowser.open(songLink, new=0)
-                            time.sleep(3.5)
+                            time.sleep(5)
                             closeWindow()
                             time.sleep(2)
                             playPause()
