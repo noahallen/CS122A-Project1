@@ -1,9 +1,10 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 # lsusb to check device name
 # dmesg | grep "tty" to find port name
 import serial
 import time
+import spotipy
+import json
+import webbrowser
 
 
 def parseOutput(output):
@@ -14,7 +15,7 @@ def parseOutput(output):
 if __name__ == '__main__':
 
     print('Running. Press CTRL-C to exit.')
-    with serial.Serial("/dev/ttyACM0", 9600, timeout=1) as arduino:
+    with serial.Serial("/dev/ttyACM0", 9600, timeout=.5) as arduino:
         time.sleep(0.1)  # wait for serial to open
         if arduino.isOpen():
             print("{} connected!".format(arduino.port))
@@ -28,9 +29,9 @@ if __name__ == '__main__':
                         #read output from arduino
                         answer = arduino.readline()
 
-                        #Print output 
                         output = answer.decode("Ascii")
-                        print(output)
+                        # print(output)
+                        #Parse output from arduino
                         parseOutput(output)
                         arduino.flushInput()  # remove data after reading
             except KeyboardInterrupt:
