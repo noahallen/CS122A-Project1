@@ -9,12 +9,12 @@ import webbrowser
 global clientID
 global clientSecret
 global spotifyUserName
-global redirectURL
+global redirectURI
 
 clientID = "b6dc4115b3e54349b7d02bbf3f865f85"
 clientSecret = "31d4d345bc114da39414613c1ce45a38"
 spotifyUserName = "noah_allen24"
-redirectURL = "http://google.com/"
+redirectURI = "http://google.com/"
 
 
 
@@ -31,7 +31,7 @@ if __name__ == '__main__':
     user = spotifyObject.current_user()
     print(json.dumps(user,sort_keys=True, indent=4))
     print("Welcome, "+ user['display_name'])
-    
+
     print('Running. Press CTRL-C to exit.')
     with serial.Serial("/dev/ttyACM0", 9600, timeout=.5) as arduino:
         time.sleep(0.1)  # wait for serial to open
