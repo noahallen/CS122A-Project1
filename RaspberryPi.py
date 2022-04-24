@@ -13,7 +13,12 @@ global clientSecret
 global spotifyUserName
 global redirectURI
 global songIDHashTable
+global mouse
+global keyboard
 
+
+keyboard = Controller()
+mouse = Controller()
 clientID = "b6dc4115b3e54349b7d02bbf3f865f85"
 clientSecret = "31d4d345bc114da39414613c1ce45a38"
 spotifyUserName = "noah_allen24"
@@ -29,11 +34,19 @@ def parseOutput(output):
     else:
         return ""
 
+def closeWindow():
+    mouse.position = (788, 50)
+    mouse.press(Button.left)
+    mouse.release(Button.left)
+
+def playPause():
+    mouse.position = (296, 584)
+    mouse.press(Button.left)
+    mouse.release(Button.left)
 
 
 if __name__ == '__main__':
-    keyboard = Controller()
-    mouse = Controller()
+    
     oauth_object = spotipy.SpotifyOAuth(clientID,clientSecret,redirectURI)
     token_dict = oauth_object.get_access_token()
     token = token_dict['access_token']
@@ -64,15 +77,11 @@ if __name__ == '__main__':
                         if(songLink == ""):
                             print("Card not recognized")
                         else:
-                            mouse.position = (788, 50)
                             webbrowser.open(songLink, new=0)
                             time.sleep(5)
-                            mouse.press(Button.left)
-                            mouse.release(Button.left)
+                            closeWindow()
                             time.sleep(3)
-                            mouse.position = (296, 584)
-                            mouse.press(Button.left)
-                            mouse.release(Button.left)
+                            playPause()
 
                             
                             
