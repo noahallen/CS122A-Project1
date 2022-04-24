@@ -67,6 +67,8 @@ if __name__ == '__main__':
                             time.sleep(5)
                             keyboard.press(Key.space)
                             keyboard.release(Key.space)
+                            devices = spotifyObject.devices()
+                            print(json.dumps(devices, sort_keys=True, indent=4))
 
                         arduino.flushInput()  # remove data after reading
             except KeyboardInterrupt:
