@@ -70,7 +70,7 @@ if __name__ == '__main__':
 
 
                             
-                            print(json.dumps(devices, sort_keys=True, indent=4))
+                            
 
                         arduino.flushInput()  # remove data after reading
             except KeyboardInterrupt:
