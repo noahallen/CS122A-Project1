@@ -53,7 +53,7 @@ if __name__ == '__main__':
                         # print(output)
                         #Parse output from arduino
                         songLink = parseOutput(output)
-                        webbrowser.open(song)
+                        webbrowser.open(songLink)
                         arduino.flushInput()  # remove data after reading
             except KeyboardInterrupt:
                 print("KeyboardInterrupt has been caught.")
