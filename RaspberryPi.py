@@ -70,8 +70,9 @@ if __name__ == '__main__':
                             mouse.press(Button.left)
                             mouse.release(Button.left)
                             time.sleep(3)
-                            print('The current pointer position is {0}'.format(
-    mouse.position))
+                            mouse.position = (296, 584)
+                            mouse.press(Button.left)
+                            mouse.release(Button.left)
 
                             
                             
