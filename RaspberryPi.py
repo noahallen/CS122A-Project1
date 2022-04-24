@@ -5,7 +5,7 @@ import time
 import spotipy
 import json
 import webbrowser
-from pynput.keyboard import Key, Controller 
+from pynput.keyboard import Button, Controller 
 
 global clientID
 global clientSecret
