@@ -19,7 +19,7 @@ spotifyUserName = "noah_allen24"
 redirectURI = "http://google.com/"
 
 #To add a new song, add ?pwa=1/ after the .com/ in the original link
-songIDHashTable = {"8713525193": "https://open.spotify.com/?pwa=1"}
+songIDHashTable = {"8713525193": "https://open.spotify.com/track/11bD1JtSjlIgKgZG2134DZ?si=789cb325d2c146e4"}
 
 def parseOutput(output):
     print(output)
