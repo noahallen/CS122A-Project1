@@ -79,6 +79,8 @@ if __name__ == '__main__':
                             print("Card not recognized")
                         else:
                             if(songOpened):
+                                playPause()
+                                time.sleep(.5)
                                 closeWindow()
                             webbrowser.open(songLink, new=0)
                             time.sleep(5)
