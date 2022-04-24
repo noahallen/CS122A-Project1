@@ -32,7 +32,7 @@ def parseOutput(output):
 
 if __name__ == '__main__':
     keyboard = Controller()
-
+    mouse = Controller()
     oauth_object = spotipy.SpotifyOAuth(clientID,clientSecret,redirectURI)
     token_dict = oauth_object.get_access_token()
     token = token_dict['access_token']
@@ -65,9 +65,10 @@ if __name__ == '__main__':
                         else:
                             webbrowser.open(songLink, new=0)
                             time.sleep(5)
-                            keyboard.press(Key.space)
-                            keyboard.release(Key.space)
-                            devices = spotifyObject.devices()
+                            print('The current pointer position is {0}'.format(mouse.position))
+
+
+                            
                             print(json.dumps(devices, sort_keys=True, indent=4))
 
                         arduino.flushInput()  # remove data after reading
