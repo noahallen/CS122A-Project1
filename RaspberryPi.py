@@ -5,6 +5,7 @@ import time
 import spotipy
 import json
 import webbrowser
+from pynput.keyboard import Key, Controller 
 
 global clientID
 global clientSecret
@@ -29,6 +30,8 @@ def parseOutput(output):
 
 
 if __name__ == '__main__':
+    keyboard = Controller()
+
     oauth_object = spotipy.SpotifyOAuth(clientID,clientSecret,redirectURI)
     token_dict = oauth_object.get_access_token()
     token = token_dict['access_token']
@@ -60,6 +63,10 @@ if __name__ == '__main__':
                             print("Card not recognized")
                         else:
                             webbrowser.open(songLink, new=0)
+                            time.sleep(5)
+                            keyboard.press(Key.space)
+                            keyboard.release(Key.space)
+
                         arduino.flushInput()  # remove data after reading
             except KeyboardInterrupt:
                 print("KeyboardInterrupt has been caught.")
