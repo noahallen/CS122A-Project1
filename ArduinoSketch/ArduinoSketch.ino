@@ -21,31 +21,36 @@ RST             D9           D8
 #define RESET_DIO 8
 
 /* Create an instance of the RFID library */
-RFID RC522(SDA_DIO, RESET_DIO); 
+RFID RC522(SDA_DIO, RESET_DIO);
 
-void setup(){ 
+void setup()
+{
+  /* Open serial port 9600 */
   Serial.begin(9600);
-  
+
   /* Enable the SPI interface */
-  SPI.begin(); 
-  
+  SPI.begin();
+
   /* Initialise the RFID reader */
   RC522.init();
 }
 
-void loop(){
-  
+void loop()
+{
+
   /* Has a card been detected? */
-  if (RC522.isCard()){
-    
+  if (RC522.isCard())
+  {
+
     /* If so then get its serial number */
     RC522.readCardSerial();
+
     /*Serial.println("Card detected:");*/
-    for(int i=0;i<5;i++){
-      Serial.print(RC522.serNum[i],DEC);
+    for (int i = 0; i < 5; i++)
+    {
+      Serial.print(RC522.serNum[i], DEC);
     }
-    //Serial.println();
-    //Serial.println();
   }
+  /* Delay one second between loops to prevent overloading the serial output */
   delay(1000);
 }
