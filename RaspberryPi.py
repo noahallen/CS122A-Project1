@@ -33,6 +33,7 @@ songIDHashTable = {"8713525193": "https://open.spotify.com/track/11bD1JtSjlIgKgZ
 
 def parseOutput(output):
     print(output)
+    # Allows user to play and pause with a specific card
     if(output == "165214126166"):
         return "PlayPause"
     if(output in songIDHashTable.keys()):
