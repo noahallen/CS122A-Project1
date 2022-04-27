@@ -33,6 +33,8 @@ songIDHashTable = {"8713525193": "https://open.spotify.com/track/11bD1JtSjlIgKgZ
 
 def parseOutput(output):
     print(output)
+    if(output == "165214126166"):
+        return "PlayPause"
     if(output in songIDHashTable.keys()):
         return songIDHashTable[output]
     else:
@@ -100,6 +102,8 @@ if __name__ == '__main__':
                         # If the parsed output/ID isn't recognized, dont play anything and just reset buffer
                         if(songLink == ""):
                             print("Card not recognized")
+                        elif(songLink == "PlayPause"):
+                            playPause()
                         else:
 
                             # Checks the flag if a song has been opened yet in order to check if a window needs to be closed first
